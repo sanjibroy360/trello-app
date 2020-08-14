@@ -10,7 +10,8 @@ var mongoose = require("mongoose");
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/api/user');
+var apiRouter = require("./routes/api/index");
+// var usersRouter = require('./routes/api/user');
 
 var app = express();
 
@@ -48,7 +49,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);
 
 // connect to mongodb
-mongoose.connect('mongodb://localhost:27017/habit-tracker',{useUnifiedTopology: true} , function (err) {
+mongoose.connect('mongodb://localhost:27017/trello',{useUnifiedTopology: true} , function (err) {
   console.log('mongodb connected ?', err ? false : true);
 })
 
@@ -71,7 +72,7 @@ if (process.env.NODE_ENV === "development") {
 
 
 // Route handler
-// app.use('/api/v1/user', usersRouter) // user route handler
+app.use('/api/v1', apiRouter) // user route handler
 app.use("/", indexRouter); // react handler
 
 

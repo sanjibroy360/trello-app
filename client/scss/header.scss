@@ -1,0 +1,103 @@
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 555;
+  padding-bottom: 4rem !important;
+}
+
+.navbar {
+  background: linear-gradient(135deg, #0079bf, #5067c5);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 55;
+  padding: 0.5rem 0rem;
+  border: none;
+}
+
+.scroll {
+  background-color: #0079bf;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav_links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  flex-basis: 30%;
+  margin: 0 auto;
+}
+
+.nav_menu {
+  flex-basis: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 1.09375rem;
+  border-radius: 0.2rem;
+  border: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.transparent_btn {
+  background: transparent;
+  color: #fff;
+}
+
+.blue_btn {
+  background-color: #fff;
+  color: #0079bf;
+}
+
+.active_link {
+  text-decoration: underline;
+}
+
+.icon_btn {
+  padding: 0.5rem 0.5rem;
+  min-width: 2rem;
+  font-size: 1rem;
+  vertical-align: middle;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.icon_btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.auth_nav {
+  width: 98%;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.auth_nav_left {
+  flex-basis: 13%;
+}
+
+.auth_nav_right {
+  flex-basis: 8.3%;
+}
