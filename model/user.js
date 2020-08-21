@@ -1,5 +1,7 @@
 let mongoose = require("mongoose");
 let { hash, compare } = require("bcrypt");
+let Team = require("./team");
+let Board = require("./board");
 let Schema = mongoose.Schema;
 
 let userSchema = new Schema(
@@ -28,6 +30,19 @@ let userSchema = new Schema(
       maxlength: 25,
       minlength: 8,
     },
+    teamId: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Team"
+      },
+    ],
+
+    boardId: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Board"
+      },
+    ],
 
     image: String,
     bio: String,
@@ -56,7 +71,7 @@ userSchema.methods.encryptPassword = async function (password) {
 };
 
 userSchema.methods.profileInfo = function (user, token = null) {
-  console.log(token, "token")
+  console.log(token, "token");
   let profile = {
     id: user.id,
     username: user.username,

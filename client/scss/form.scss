@@ -26,9 +26,14 @@
   }
 }
 
-.accept_policy {
+.accept_policy, .small_text {
   color: rgb(94, 108, 132);
   font-size: 0.8rem;
+}
+
+.small_text {
+  margin-top: 0.5rem;
+  font-weight: 100;
 }
 
 .submit_btn {

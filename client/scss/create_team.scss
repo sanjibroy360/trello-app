@@ -1,0 +1,101 @@
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  position: absolute !important;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  padding: 0 !important;
+}
+
+.team_modal {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .team_modal_leftside {
+    flex-basis: 48%;
+    padding: 3rem 2rem !important;
+  }
+
+  .team_modal_rightside {
+    background: url(https://a.trellocdn.com/prgb/dist/images/create-team/wavy-border.1ea9c6f8c41d10be0e12.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-position: center;
+    flex-basis: 50%;
+    width: 417px;
+
+    padding: 8rem 0rem !important;
+
+    img {
+      width: 20rem;
+      height: 16rem;
+    }
+
+    i{
+      margin-top: -6rem;
+      margin-right: 2rem;
+      display: block;
+      text-align: right;
+    }
+  }
+}
+
+.create_team_form {
+  h2 {
+    font-size: 1.5rem;
+    color: #091e42;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+
+  .form_head_para {
+    font-size: 1.125rem;
+    color: #6b778c;
+    margin: 0.8rem auto 1.5rem auto;
+  }
+
+  .field {
+    label {
+      margin-top: 1.5rem !important;
+      color: #091e42 !important;
+      font-size: 0.8rem !important;
+      margin-bottom: 0.4rem !important;
+    }
+
+    input {
+      min-height: 2.25rem !important;
+    }
+
+    input,
+    textarea,
+    select {
+      color: #172b4d !important;
+      padding: 8px 12px !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      border: 2px solid #dfe1e6 !important;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border: 2px solid rgb(77, 152, 250) !important;
+      background-color: #fafbfc;
+    }
+
+    input:hover,
+    select:hover,
+    textarea:hover {
+      background-color: #ededee;
+    }
+  }
+}
+
+#closeModalBtn,
+#modalToggleBtn {
+  display: none !important;
+}
