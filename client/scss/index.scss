@@ -1,7 +1,13 @@
 @import "./css_reset.scss";
+@import "./loader.scss";
 @import "./header.scss";
 @import "./home.scss";
 @import  "./form.scss";
+@import "./auth_home.scss";
+@import "./create_team.scss";
+@import "./feed.scss";
+@import "./create_board.scss";
+@import "./team_page.scss";
 
 body {
   font-family: "Charlie Text",sans-serif;
@@ -11,7 +17,7 @@ body {
 }
 
 .container {
-  max-width: 81rem;
+  max-width: 81rem !important;
   margin: 0 auto;
 }
 
@@ -33,7 +39,7 @@ a, button {
   outline: 0;
 }
 
-input {
+input, button, textarea, select {
   outline: 0;
 }
 
@@ -53,3 +59,5 @@ input {
     background-color: #fff;
   }
 }
+
+

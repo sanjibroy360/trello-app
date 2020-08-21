@@ -24,7 +24,7 @@ function AuthHeader(props) {
                   </IconButton>
                 </NavLink>
 
-                <NavLink to="/" activeClassName="active_link">
+                <NavLink to="/boards" activeClassName="active_link">
                   <IconButton>
                     <i className="fab fa-trello"></i> Boards
                   </IconButton>

@@ -1,0 +1,69 @@
+.auth_home {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 3rem !important;
+}
+
+.leftside_component {
+  flex-basis: 77%;
+}
+ul.vertical.sidebar_menu {
+  line-height: 1 !important;
+    margin-bottom: 0.3rem !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0.5rem !important;
+  .item {
+    line-height: 1 !important;
+    margin-bottom: 0.3rem !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0.5rem !important;
+  }
+
+  .item::before {
+    border: none !important;
+    box-shadow: none !important;
+    width: 0px !important;
+  }
+}
+
+.board_category {
+  color: #172b4d;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
+    Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.board_list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.home_card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background-color: rgba(9, 30, 66, 0.04);
+  color: #172b4d;
+  text-align: center;
+  height: 6rem;
+  width: 9.6rem;
+  margin-bottom: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.sidebar_heading {
+  color: #5e6c84;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+}

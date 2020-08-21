@@ -21,6 +21,7 @@ exports.userLogin = async function (req, res, next) {
     if (!email || !password) {
       return res.status(400).send(`Email and Password required!`);
     }
+    console.log(req.body.user);
     let user = await User.findOne({ email });
     if (!user) {
       return res.status(400).send(`Invalid email or password!`);
