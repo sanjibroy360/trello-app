@@ -1,0 +1,59 @@
+.duedate_popup {
+  position: absolute;
+  right: 0.6rem;
+  top: 2rem;
+  width: 304px;
+  background-color: #fff;
+  padding: 0.5rem 0.25rem;
+  box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
+  z-index: 10000000 !important;
+
+  // .react-calendar__tile--now {
+  //   color: #cf513d;
+  // }
+  hr {
+    width: 102.2%;
+    margin-left: -0.25rem;
+    padding: 0rem;
+    color: rgb(223,225,230);
+  }
+  .react-calendar {
+    color: rgb(72, 84, 113);
+    padding-top: 0.75rem;
+    max-width: 90% !important;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    border: 1.5px solid rgb(223,225,230);
+    
+
+    button {
+      border-radius: 50% !important;
+    }
+  }
+
+  .btn_wrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+
+    .btn {
+      color: #fff;
+      width: 77.32px;
+      text-align: center;
+    }
+
+    .save_btn {
+      font-size: 0.875rem;
+      background-color: #5aac44;
+    }
+
+    .remove_btn {
+      font-size: 0.875rem;
+      background-color: #cf513d;
+    }
+  }
+}

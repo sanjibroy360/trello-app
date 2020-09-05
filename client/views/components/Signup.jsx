@@ -17,7 +17,7 @@ class Signup extends Component {
   }
 
   handleInput = ({ target: { name, value } }) => {
-    this.setState({ [name]: value.trim() });
+    this.setState({ [name]: value });
   };
 
   handleSubmit = () => {

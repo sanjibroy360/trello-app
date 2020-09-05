@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TeamEditForm from "./TeamEditForm";
 import { connect } from "react-redux";
+import Loader from "./Loader";
 
 class TeamInfo extends Component {
   constructor(props) {
@@ -18,21 +19,48 @@ class TeamInfo extends Component {
   };
   render() {
     let { formIsOpen } = this.state;
-    let { singleTeam } = this.props;
+    let { singleTeam, userInfo } = this.props;
+    console.log(singleTeam);
+    if (!singleTeam.owner) {
+      return <Loader />;
+    }
     return (
       <section className="team_page_head">
         <div className="team_page_container">
           <div className="team_info_wrapper">
             <div className="avatar">
-              <i className="far fa-user"></i>
+              <i class="fas fa-users"></i>
             </div>
             <div>
               {!formIsOpen ? (
                 <>
-                  <h2>{singleTeam.name}</h2>
-                  <nobr>
-                    <button onClick={this.openForm}>Edit Team Profile</button>
-                  </nobr>
+                  <div className="team_info">
+                    <h2>{singleTeam.name}</h2>
+                    {singleTeam.description ? (
+                      <p>{singleTeam.description}</p>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                  {singleTeam.owner._id == userInfo.id ? (
+                    <>
+                      <nobr>
+                        <button onClick={this.openForm} className="edit_btn">
+                          <i className="fas fa-pencil-alt "></i>&nbsp;Edit Team
+                          Profile
+                        </button>
+                      </nobr>
+                    </>
+                  ) : (
+                    <>
+                      <nobr>
+                        <button className="edit_btn disable">
+                          <i className="fas fa-pencil-alt"></i>&nbsp;Edit Team
+                          Profile
+                        </button>
+                      </nobr>
+                    </>
+                  )}
                 </>
               ) : (
                 <TeamEditForm closeForm={this.closeForm} />
@@ -45,8 +73,8 @@ class TeamInfo extends Component {
   }
 }
 
-function mapStateToProps({ singleTeam }) {
-  return { singleTeam };
+function mapStateToProps({ singleTeam, userInfo }) {
+  return { singleTeam, userInfo };
 }
 
 export default connect(mapStateToProps)(TeamInfo);

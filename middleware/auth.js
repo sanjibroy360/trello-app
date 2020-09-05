@@ -12,6 +12,9 @@ exports.generateToken = function (user) {
 
 exports.verifyToken = async function (req, res, next) {
   try {
+    // if(!req.headers.authorization.split(" ")[1]) {
+    //   console.log
+    // }
     let authorization = req.headers.authorization.split(" ");
     let token =
       (req.headers.authorization &&
@@ -19,16 +22,22 @@ exports.verifyToken = async function (req, res, next) {
         authorization[1]) ||
       null;
 
-    if (!token) {
+    if (!token || token=="undefined") {
       req.user = null;
-      return res.status(401).json({ message: `Unauthorized user!` });
+      console.log("returned");
+      next();
+      return;
+      // return res.status(401).json({ message: `Unauthorized user!` });
     }
+    
 
     let { userId } = await verify(token, process.env.SECRET);
     if (!userId) {
+      next();
       return res.status(401).json({ message: `Unauthorized user!` });
     }
     req.user = { userId, token };
+    console.log({Req: req.user})
     next();
   } catch (error) {
     next(error);

@@ -13,7 +13,7 @@ const customStyles = {
     marginTop: "10%",
     marginBottom: "5%",
     width: "60rem",
-    
+
     margin: "10% auto 5% auto",
     transform: "translate(-47%, -50%)",
   },
@@ -45,10 +45,15 @@ class CreateTeamModal extends Component {
 
   render() {
     let { modalIsOpen } = this.state;
+    const ref = React.createRef();
     return (
       <div>
         <div>
-          <button id="modalToggleBtn" onClick={this.handleModalVisibility}>
+          <button
+            id="modalToggleBtn"
+            ref={ref}
+            onClick={this.handleModalVisibility}
+          >
             Open Modal
           </button>
         </div>
@@ -61,13 +66,11 @@ class CreateTeamModal extends Component {
           <button onClick={this.closeModal} id="closeModalBtn">
             close
           </button>
-          <div className="team_modal">
-            <div className="team_modal_leftside">
-              {this.props.content()}
-            </div>
-            <div className="team_modal_rightside">
+          <div className="modal">
+            <div className="modal_leftside">{this.props.content()}</div>
+            <div className="modal_rightside">
               <label htmlFor="closeModalBtn" className="closeBtn">
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times close_btn_icon"></i>
               </label>
               <img
                 src="https://a.trellocdn.com/prgb/dist/images/organization/empty-board.286f8fc83e01c93ed27e.svg"

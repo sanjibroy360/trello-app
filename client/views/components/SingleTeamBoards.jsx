@@ -1,62 +1,57 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuid from "react-uuid";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
-import { getSingleTeamInfo, getBoardList } from "../../store/action";
+import { getSingleTeamInfo } from "../../store/action";
 import TeamPageTabs from "./TeamPageTabs";
 import TeamInfo from "./TeamInfo";
 
 class SingleTeamBoards extends Component {
   componentDidMount() {
     let { teamSlug } = this.props.match.params;
-    this.props.dispatch(getSingleTeamInfo(teamSlug))
-    return this.props.dispatch(getBoardList());
+    return this.props.dispatch(getSingleTeamInfo(teamSlug, this.props.history));
   }
-  // componentDidUpdate() {
-    // let { teamSlug } = this.props.match.params;
-  //   if (this.props.singleTeam.slug != teamSlug) {
-  //     let { teamSlug } = this.props.match.params;
-  //     return this.props.dispatch(getSingleTeamInfo(teamSlug));
-  //   }
-  // }
 
   render() {
-    let { boards, singleTeam } = this.props;
-    console.log(boards, singleTeam);
+    let { singleTeam } = this.props;
+    let teamBoards = singleTeam.boardId;
     return (
       <>
         <TeamInfo />
         <TeamPageTabs activeTab="0" />
-        {boards.length && singleTeam.slug ? (
-          <div className="team_page_container">
-            <ul className="board_list">
-              {singleTeam.boardId.map((boardId) => {
-                let teamBoard = boards.find((board) => board._id == boardId);
-                return (
-                  <>
-                    {teamBoard.name ? (
-                      <li className="home_card" key={uuid()}>
-                        {teamBoard.name}
+        <div className="team_page_container">
+          {teamBoards && teamBoards.length > 0 ? (
+            <>
+              <ul className="board_list">
+                {teamBoards.map((board) => {
+                  return (
+                    <Link to={`/board/${board.slug}`}>
+                      <li className="home_card board_card" key={uuid()}>
+                        <span className="board-tile-fade"></span>
+                        <span className="board_name">{board.name}</span>
                       </li>
-                    ) : (
-                      <></>
-                    )}
-                  </>
-                );
-              })}
-            </ul>
-          </div>
-        ) : (
-          <> </>
-        )}
+                    </Link>
+                  );
+                })}
+                <li key={uuid}>
+                  <label htmlFor="toggleCreateBoardModal" className="home_card">
+                    Create new board
+                  </label>
+                </li>
+              </ul>
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
       </>
     );
   }
 }
 
-function mapStateToProps({ singleTeam, boards }) {
-  return { singleTeam, boards };
+function mapStateToProps({ singleTeam }) {
+  return { singleTeam };
 }
 
 export default connect(mapStateToProps)(withRouter(SingleTeamBoards));

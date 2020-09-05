@@ -4,19 +4,21 @@
 
 .ReactModal__Content.ReactModal__Content--after-open {
   padding: 0 !important;
+  z-index: 100000 !important ;
+  margin-top: 10% !important;
 }
 
-.team_modal {
+.modal {
   display: flex;
   width: 100%;
   justify-content: space-between;
 
-  .team_modal_leftside {
+  .modal_leftside {
     flex-basis: 48%;
     padding: 3rem 2rem !important;
   }
 
-  .team_modal_rightside {
+  .modal_rightside {
     background: url(https://a.trellocdn.com/prgb/dist/images/create-team/wavy-border.1ea9c6f8c41d10be0e12.svg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -31,7 +33,7 @@
       height: 16rem;
     }
 
-    i{
+    .close_btn_icon {
       margin-top: -6rem;
       margin-right: 2rem;
       display: block;
@@ -98,4 +100,16 @@
 #closeModalBtn,
 #modalToggleBtn {
   display: none !important;
+}
+
+.team_list {
+  li,
+  label {
+    cursor: pointer;
+  }
+
+  .team_name:hover {
+    color: rgb(77, 152, 250);
+    font-weight: bold;
+  }
 }

@@ -1,0 +1,119 @@
+#card_modal_background {
+  background-color: rgba(0, 0, 0, 0.64) !important;
+  position: fixed !important;
+  border: none !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+  z-index: 1000000 !important;
+}
+
+.card_modal {
+  max-width: 48rem !important;
+  min-height: 80vh;
+  max-height: 102vh;
+  background-color: rgb(244,245,247);
+
+  .modal_leftside {
+    flex-basis: 68.5%;
+    max-width: 68.5%;
+    background-color: rgb(244,245,247);
+
+    .edit_card_form {
+      display: block;
+      line-height: 3;
+
+      input[type="text"] {
+        width: 100%;
+        min-height: 2.25rem !important;
+      }
+
+      input[type="text"]:focus {
+        border: 2px solid rgb(77, 152, 250) !important;
+        background-color: #fafbfc;
+      }
+
+      .card_name {
+        
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.5;
+        overflow-wrap:break-word;
+        overflow:scroll;
+        
+      }
+
+      h3 {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .description_placeholder {
+        background-color: rgba(9, 30, 66, 0.04);
+        min-height: 2.5rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 0.25rem;
+      }
+
+      .description_placeholder {
+        font-size: 0.875rem;
+      }
+      .dueDate_wrapper {
+        display: flex;
+        align-items: center;
+        font-size: 0.875rem;
+        color: #5e6c84;
+        input[type="checkbox"] {
+          margin-top: 1.15rem;
+        }
+        .date {
+          margin: 0 0.75rem;
+        }
+
+        .badge {
+          border-radius: 0.25rem;
+          overflow-wrap: break-word;
+          padding: 0.15rem 0.2rem;
+        }
+
+      }
+    }
+  }
+
+  .modal_rightside {
+    background-color: rgb(244,245,247) !important;
+    flex-basis: 31.5%;
+    background: none;
+
+    .ui.vertical.menu {
+      background-color: rgb(244,245,247) !important;
+    }
+  }
+}
+
+.activity {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 3;
+}
+
+.desc_wrapper {
+  display: flex;
+  align-items: center;
+
+  .btn {
+    border: none;
+    font-size: 0.875rem;
+    margin-left: 1rem;
+    padding: 0.5rem 0.875rem;
+  }
+}
+
+.card_desc_text {
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+.card_details {
+  display: flex;
+}
+

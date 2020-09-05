@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import CreateTeamForm from "./CreateTeamForm";
 import { connect } from "react-redux";
-import Modal from "./Modal";
+import CreateTeamModal from "./CreateTeamModal";
 import { getTeamList } from "../../store/action";
 
 class SidebarTeam extends Component {
@@ -15,7 +15,7 @@ class SidebarTeam extends Component {
     console.log(teams);
     return (
       <>
-        <div>
+        <div className="team_list">
           <p className="sidebar_heading">Teams</p>
           <ul className="ui vertical menu sidebar_menu">
             <li className="item">
@@ -26,7 +26,9 @@ class SidebarTeam extends Component {
                 return (
                   <Link to={`/team/${team.slug}`}>
                     {" "}
-                    <li className="item"> {team.name}</li>
+                    <li className="item team_name">
+                      <i class="fas fa-users"></i>&nbsp;{team.name}
+                    </li>
                   </Link>
                 );
               })
@@ -34,7 +36,7 @@ class SidebarTeam extends Component {
               <></>
             )}
           </ul>
-          <Modal content={() => <CreateTeamForm />} />
+          <CreateTeamModal content={() => <CreateTeamForm />} />
         </div>
       </>
     );

@@ -1,0 +1,54 @@
+.list_form_wrapper {
+  min-height: 2rem;
+  border: none;
+  box-shadow: none;
+  min-width: 17rem;
+  border-radius: 0.2rem;
+
+  .placeholder {
+    padding: 0.5rem 0.8rem;
+    background-color: hsla(0, 0%, 100%, 0.24);
+    width: 100%;
+    border-radius: 0.2rem;
+    font-size: 0.875rem;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .list_form {
+    width: 100%;
+    background-color: #ebecf0;
+    padding: 0.25rem;
+    box-shadow: none;
+    border-radius: 0.2rem;
+
+    border: none;
+    input {
+      width: 100%;
+      border: none;
+      border-radius: 0.2rem;
+      font-size: 0.8rem;
+      box-shadow: inset 0 0 0 2px #0079bf;
+      background-color: #fff;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+.btn_wrapper {
+  button {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    margin-right: 0.25rem;
+    min-height: 2rem;
+  }
+
+  .add_btn {
+    color: #fff;
+    background-color: #5aac44;
+  }
+}

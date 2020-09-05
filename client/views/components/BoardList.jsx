@@ -2,69 +2,87 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CreateBoardModal from "./CreateBoardModal";
 import { connect } from "react-redux";
-import { getBoardList } from "../../store/action";
+import { getPersonalBoards, getTeamBoards } from "../../store/action";
 import uuid from "react-uuid";
 import Loader from "./Loader";
 
-class BoardHome extends Component {
-  componentDidMount() {
-    return this.props.dispatch(getBoardList());
-  }
+class BoardList extends Component {
+  // componentDidMount() {
+  //   this.props.dispatch(getPersonalBoards());
+  //   return this.props.dispatch(getTeamBoards());
+  // }
   render() {
-    let { boards, teams } = this.props;
-    let teamWithBoard = teams.filter((team) => team.boardId);
+    let { personalBoards, teamBoards, teams } = this.props;
 
     return (
       <>
-        <p className="board_category">
-          <i className="far fa-user"></i> Personal Boards
+        <p className="board_category" key={uuid()}>
+          <i className="far fa-user" key={uuid()}></i> Personal Boards
         </p>
         <ul className="board_list">
-          {boards.length ? (
-            boards
+          {personalBoards.length ? (
+            personalBoards
               .filter((board) => !board.teamId)
               .map((board) => {
                 return (
-                  <li key={uuid()} className="home_card">
-                    {board.name}
-                  </li>
+                  <Link to={`/board/${board.slug}`} key={uuid()}>
+                    <li key={uuid()} className="home_card board_card">
+                      <span className="board-tile-fade" key={uuid()}></span>
+                      <span className="board_name" key={uuid()}>
+                        {board.name}
+                      </span>
+                    </li>
+                  </Link>
                 );
               })
           ) : (
             <></>
           )}
-          <li>
-            <label htmlFor="toggleCreateBoardModal" className="home_card">
+          <li key={uuid()}>
+            <label
+              htmlFor="toggleCreateBoardModal"
+              className="home_card"
+              key={uuid()}
+            >
               Create new board
             </label>
           </li>
         </ul>{" "}
-        {boards.length > 0 &&
-          teamWithBoard.length > 0 &&
-          teamWithBoard.map((team) => {
+        {teamBoards.length && teams.length ? (
+          teams.map((team) => {
             return (
               <>
-                <p className="board_category">
-                  <i className="far fa-user"></i> {team.name}
+                <p className="board_category" key={uuid()}>
+                  <i class="fas fa-users"></i>&nbsp;{team.name}
                 </p>
 
                 <ul className="board_list">
-                  {team.boardId.map((boardId) => {
-                    let teamBoard = boards.find(
-                      (board) => board._id == boardId
-                    );
-                    return (
-                      <>
-                        <li className="home_card" key={uuid()}>
-                          {teamBoard.name}
-                        </li>
-                      </>
-                    );
+                  {teamBoards.map((board) => {
+                    if (board.teamId.name == team.name) {
+                      return (
+                        <>
+                          <Link to={`/board/${board.slug}`} key={uuid()}>
+                            <li className="home_card board_card" key={uuid()}>
+                              <span
+                                className="board-tile-fade"
+                                key={uuid()}
+                              ></span>
+                              <p className="board_name" key={uuid()}>
+                                {board.name}
+                              </p>
+                            </li>
+                          </Link>
+                        </>
+                      );
+                    } else {
+                      return <></>;
+                    }
                   })}
-                  <li>
+                  <li key={uuid()}>
                     <label
                       htmlFor="toggleCreateBoardModal"
                       className="home_card"
+                      key={uuid()}
                     >
                       Create new board
                     </label>
@@ -72,15 +90,18 @@ class BoardHome extends Component {
                 </ul>
               </>
             );
-          })}
+          })
+        ) : (
+          <></>
+        )}
         <CreateBoardModal />
       </>
     );
   }
 }
 
-function mapStateToProps({ boards, teams }) {
-  return { boards, teams };
+function mapStateToProps({ personalBoards, teamBoards, teams, singleBoard }) {
+  return { personalBoards, teamBoards, teams, singleBoard };
 }
 
-export default connect(mapStateToProps)(BoardHome);
+export default connect(mapStateToProps)(BoardList);

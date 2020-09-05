@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Loader({ size }) {
+function Loader({ size }) {
   return (
     <div className="loader_wrapper">
       <div className="bouncing-loader">
@@ -11,3 +11,4 @@ export default function Loader({ size }) {
     </div>
   );
 }
+export default Loader;

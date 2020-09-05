@@ -13,14 +13,10 @@ function Sidebar(props) {
               <i className="fab fa-trello"></i> Boards
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/templates" activeClassName="active" className="item">
-              Templates
-            </NavLink>
-          </li>
+          
           <li>
             <NavLink to="/home" activeClassName="active" className="item">
-              Home
+            <i class="fas fa-home"></i>Home
             </NavLink>
           </li>
         </ul>
