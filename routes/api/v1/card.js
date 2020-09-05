@@ -6,6 +6,7 @@ let Team = require("../../../model/team");
 let List = require("../../../model/list");
 let Board = require("../../../model/board");
 let Card = require("../../../model/card");
+let Comment = require("../../../model/comment");
 
 
 let auth = require("../../../middleware/auth");
@@ -30,6 +31,32 @@ router.get(
   `/:listSlug/card/:cardSlug`,
   auth.verifyToken,
   cardController.singleCardInfo
+);
+
+//******************** Comments ********************
+
+router.post(
+  `/:listSlug/card/:cardSlug/comment/create`,
+  auth.verifyToken,
+  commentController.addComment
+);
+
+router.put(
+  `/:listSlug/card/:cardSlug/comment/:commentId/edit`,
+  auth.verifyToken,
+  commentController.editComment
+);
+
+router.delete(
+  `/:listSlug/card/:cardSlug/comment/:commentId/delete`,
+  auth.verifyToken,
+  commentController.deleteComment
+);
+
+router.get(
+  `/:listSlug/card/:cardSlug/comments/all`,
+  auth.verifyToken,
+  commentController.singleCardComment
 );
 
 
