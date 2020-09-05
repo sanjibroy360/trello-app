@@ -33,19 +33,23 @@ let userSchema = new Schema(
     teamId: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Team"
+        ref: "Team",
       },
     ],
 
     boardId: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Board"
+        ref: "Board",
       },
     ],
 
-    image: String,
-    bio: String,
+    image: {
+      type: String,
+    },
+    bio: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

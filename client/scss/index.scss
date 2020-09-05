@@ -8,12 +8,23 @@
 @import "./feed.scss";
 @import "./create_board.scss";
 @import "./team_page.scss";
+@import "./team_member.scss";
+@import "./board_header.scss";
+@import "./board_page.scss";
+@import "list_form.scss";
+@import "./list.scss";
+@import "./card_modal.scss";
+@import "./comment.scss";
+@import "./card_modal_sidebar.scss";
+@import "./duedate.scss";
+@import "./error.scss";
 
 body {
   font-family: "Charlie Text",sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
+  color: #172b4d;
 }
 
 .container {
@@ -60,4 +71,18 @@ input, button, textarea, select {
   }
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.list_wrapper {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.modalToggleBtn {
+  display: none;
+}
 

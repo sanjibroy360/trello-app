@@ -2,6 +2,19 @@
   background-color: rgb(244, 245, 247) !important;
 }
 
+.team_info_wrapper {
+  .edit_btn {
+    border: none;
+    background-color: rgba(9, 30, 66, 0.04);
+    margin-top: 0.5rem;
+    padding: 0.375rem 0.75rem;
+  }
+
+  .disable {
+    cursor: not-allowed;
+  }
+}
+
 .ui.attached.tabular.menu {
   background-color: rgb(244, 245, 247) !important;
   border: none !important;
@@ -16,25 +29,33 @@
 }
 
 .team_page_container {
-  max-width: 50rem;
+  max-width: 55rem;
   margin: 0 auto;
   .team_info_wrapper {
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
     padding-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 3rem;
   }
+  .team_info {
+    flex-basis: 40%;
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: rgb(23, 43, 77);
+      margin-bottom: 0.8rem;
+    }
 
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: rgb(23, 43, 77);
-    margin-bottom: 0.8rem;
+    p {
+      font-size: 0.875rem;
+      max-width: 500px;
+    }
   }
 
   .avatar {
+    flex-basis: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,6 +127,10 @@
     background-color: rgb(246, 246, 248);
     border: none;
   }
+
+  .disable {
+    cursor: not-allowed;
+  }
 }
 
 .ui.top.left.basic.popup.transition.visible {
@@ -117,6 +142,10 @@
     font-size: 0.875rem;
     font-weight: 600;
     color: #172b4d;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1000005 !important;
   }
 
   .link {
@@ -145,7 +174,7 @@
 
   .delbtn {
     width: 100%;
-    background-color: rgb(207,81,61);
+    background-color: rgb(207, 81, 61);
     color: #fff;
     border-radius: 0.2rem;
     padding: 0.3rem 0.1rem;

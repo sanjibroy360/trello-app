@@ -11,10 +11,10 @@
 }
 ul.vertical.sidebar_menu {
   line-height: 1 !important;
-    margin-bottom: 0.3rem !important;
-    border: none !important;
-    box-shadow: none !important;
-    border-radius: 0.5rem !important;
+  margin-bottom: 0.3rem !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0.5rem !important;
   .item {
     line-height: 1 !important;
     margin-bottom: 0.3rem !important;
@@ -44,26 +44,54 @@ ul.vertical.sidebar_menu {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+
+  .home_card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background-color: rgba(9, 30, 66, 0.04);
+    color: #172b4d;
+    text-align: center;
+    height: 6rem;
+    width: 12rem;
+    margin-bottom: 1.25rem;
+    margin-right: 1.25rem;
+    border-radius: 0.25rem;
+  }
+
+  .board_card {
+    background: url(https://source.unsplash.com/collection/327163/154x97);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .sidebar_heading {
+    color: #5e6c84;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+    text-transform: uppercase;
+  }
+  .board-tile-fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 8;
+    background-color: rgba(0, 0, 0, 0.17);
+  }
+  .board_name {
+    display: block;
+    position: relative;
+    z-index: 9;
+    top: -2rem;
+    right: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1rem;
+  }
 }
 
-.home_card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  background-color: rgba(9, 30, 66, 0.04);
-  color: #172b4d;
-  text-align: center;
-  height: 6rem;
-  width: 9.6rem;
-  margin-bottom: 1.25rem;
-  margin-right: 1.25rem;
-}
-
-.sidebar_heading {
-  color: #5e6c84;
-  font-size: 0.8rem;
-  margin-top: 1rem;
-  padding: 0.5rem 0;
-  text-transform: uppercase;
-}

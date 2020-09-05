@@ -1,0 +1,43 @@
+.card_desc_frame,
+.comment_frame {
+  background-color: #fff;
+  min-height: 1.5rem;
+  overflow-wrap: break-word;
+  
+  line-height: 1.5;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.8rem;
+  transition: box-shadow 85ms ease;
+  box-shadow: 0 1px 2px -1px rgba(9, 30, 66, 0.25),
+    0 0 0 1px rgba(9, 30, 66, 0.08);
+  margin-bottom: 0.5rem;
+}
+
+.commenter {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.5rem;
+}
+
+.card_comment,
+.card_desc {
+  width: 100%;
+  resize: none;
+  border: none;
+  overflow-wrap: break-word;
+  padding: 0.5rem 0.8rem;
+  background-repeat: 0.25rem;
+  font-size: 0.875rem;
+  min-height: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.comment_card {
+  .small_text {
+    margin-right: 0.8rem;
+    
+    cursor: pointer;
+  }
+}

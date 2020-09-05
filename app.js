@@ -10,7 +10,7 @@ var mongoose = require("mongoose");
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
-var apiRouter = require("./routes/api/index");
+var apiRouter = require("./routes/api/v1/index");
 // var usersRouter = require('./routes/api/user');
 
 var app = express();

@@ -1,5 +1,5 @@
 const User = require("../model/user");
-const auth = require("../utils/auth");
+const auth = require("../middleware/auth");
 
 exports.userSignup = async function (req, res, next) {
   try {
@@ -89,6 +89,7 @@ exports.editUserProfile = async function (req, res, next) {
 exports.searchUserByUsername = async function (req, res, next) {
   try {
     let user = await User.findOne({ username: req.params.username });
+    console.log(user);
     if (!user) {
       return res.status(404).send(`User not found!`);
     }

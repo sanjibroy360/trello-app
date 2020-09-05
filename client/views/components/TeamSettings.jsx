@@ -5,28 +5,53 @@ import CardPopup from "./CardPopup";
 import { connect } from "react-redux";
 import { editTeam, getSingleTeamInfo, deleteTeam } from "../../store/action";
 import { withRouter } from "react-router-dom";
+import Loader from "./Loader";
 
 class TeamSettings extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpenVisibilityPopup: false,
+      isOpenDeletePopup: false,
+    };
+  }
   componentDidMount() {
     let slug = this.props.match.params.teamSlug;
-    return this.props.dispatch(getSingleTeamInfo(slug));
+    return this.props.dispatch(getSingleTeamInfo(slug, this.props.history));
   }
 
   handleVisibilityChange = (isPublic) => {
     let payload = { isPublic };
     let slug = this.props.match.params.teamSlug;
-    let dest = `/team/${slug}/account`;
+    let dest = `account`;
+    this.handleVisibilityPopup();
     return this.props.dispatch(
       editTeam(slug, payload, this.props.history, dest)
     );
   };
 
+  handleVisibilityPopup = () => {
+    return this.setState({
+      isOpenVisibilityPopup: !this.state.isOpenVisibilityPopup,
+    });
+  };
+
+  handleDeletePopup = () => {
+    return this.setState({
+      isOpenDeletePopup: !this.state.isOpenDeletePopup,
+    });
+  };
+
   handleTeamDelete = () => {
     let slug = this.props.match.params.teamSlug;
+    this.handleVisibilityPopup();
     return this.props.dispatch(deleteTeam(slug, this.props.history));
   };
   render() {
-    let { singleTeam } = this.props;
+    let { singleTeam, userInfo } = this.props;
+    if (!singleTeam.owner) {
+      return <Loader />;
+    }
     return (
       <>
         <TeamInfo />
@@ -43,10 +68,19 @@ class TeamSettings extends Component {
                   Only those invited to the team can add and edit team boards.
                 </p>
                 <div>
-                  <CardPopup
-                    content={visibilityOptions(this.handleVisibilityChange)}
-                    trigger={<button>Change</button>}
-                  />
+                  {singleTeam.owner._id == userInfo.id ? (
+                    <CardPopup
+                      content={visibilityOptions(this.handleVisibilityChange)}
+                      open={this.state.isOpenVisibilityPopup}
+                      trigger={
+                        <button onClick={this.handleVisibilityPopup}>
+                          Change
+                        </button>
+                      }
+                    />
+                  ) : (
+                    <button className="disable">Change</button>
+                  )}
                 </div>
               </>
             ) : (
@@ -56,27 +90,45 @@ class TeamSettings extends Component {
                   visible to those outside the team.
                 </p>
                 <div>
-                  <CardPopup
-                    content={visibilityOptions(this.handleVisibilityChange)}
-                    trigger={<button>Change</button>}
-                  />
+                  {singleTeam.owner._id == userInfo.id ? (
+                    <CardPopup
+                      content={visibilityOptions(this.handleVisibilityChange)}
+                      open={this.state.isOpenVisibilityPopup}
+                      trigger={
+                        <button onClick={this.handleVisibilityPopup}>
+                          Change
+                        </button>
+                      }
+                    />
+                  ) : (
+                    <button className="disable">Change</button>
+                  )}
                 </div>
               </>
             )}
           </div>
-
-          <div className="row">
-            <p>
-              <h3>Delete this team</h3>
-              Once you delete a team, there is no going back. Please be certain.
-            </p>
-            <div>
-              <CardPopup
-                content={handleTeamDeleteWarnig(this.handleTeamDelete)}
-                trigger={<button>Delete</button>}
-              />
-            </div>
-          </div>
+          {singleTeam.owner._id == userInfo.id ? (
+            <>
+              <div className="row">
+                <p>
+                  <h3>Delete this team</h3>
+                  Once you delete a team, there is no going back. Please be
+                  certain.
+                </p>
+                <div>
+                  <CardPopup
+                    content={handleTeamDeleteWarnig(this.handleTeamDelete)}
+                    trigger={
+                      <button onClick={this.handleDeletePopup}>Delete</button>
+                    }
+                    open={this.state.isOpenDeletePopup}
+                  />
+                </div>
+              </div>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       </>
     );
@@ -133,8 +185,8 @@ function visibilityOptions(handleVisibilityChange) {
   );
 }
 
-function mapStateToProps({ singleTeam }) {
-  return { singleTeam };
+function mapStateToProps({ singleTeam, userInfo }) {
+  return { singleTeam, userInfo };
 }
 
 export default connect(mapStateToProps)(withRouter(TeamSettings));

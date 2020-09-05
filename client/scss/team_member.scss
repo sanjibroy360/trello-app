@@ -1,0 +1,93 @@
+.add_team_member_form {
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    font-size: 1.5rem;
+    color: #091e42;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+
+  .form_head_para {
+    font-size: 1.125rem;
+    color: #6b778c;
+    margin: 0.8rem auto 1.5rem auto;
+  }
+
+  b {
+    font-weight: bold;
+  }
+  input {
+    border-width: 2px;
+  }
+  input:focus {
+    border: 2px solid rgb(77, 152, 250) !important;
+    background-color: #fafbfc;
+  }
+
+  button {
+    margin-top: 0.5rem !important;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.2rem;
+    font-size: 0.875rem !important;
+    border: none;
+    color: #a5adba;
+    cursor: not-allowed;
+    margin-bottom: 2.5rem;
+  }
+
+  .active {
+    background-color: #5aac44;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+.member_list_wrapper {
+  .member_list {
+    .list_row {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0rem;
+
+      border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+
+      .member_name {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .username {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: #5e6c84;
+      }
+
+      button {
+        width: 7rem;
+        padding: 0.5rem 1rem;
+        background-color: rgb(246, 246, 248);
+        border: none;
+      }
+      span {
+        padding: 0.5rem 1rem;
+        font-weight: 700;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+.small_error_msg {
+  font-weight: 700;
+  color: rgb(199, 29, 29);
+  font-size: 0.8rem;
+}
+
+.team_list {
+  .sidebar_heading {
+    font-size: 0.875rem;
+    color: #5e6c84;
+  }
+}

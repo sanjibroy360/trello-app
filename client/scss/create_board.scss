@@ -9,6 +9,7 @@
   border-radius: 0 !important;
   position: fixed !important;
   width: 100% !important;
+  z-index: 1000000 !important;
 
   .ReactModal__Content.ReactModal__Content--after-open {
     border-radius: 0 !important;
@@ -91,6 +92,8 @@
     border: none;
     color: #a5adba;
     cursor: not-allowed;
+    background-color: #fff;
+    
   }
 
   .active {

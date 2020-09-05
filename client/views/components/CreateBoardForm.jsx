@@ -15,6 +15,9 @@ class CreateBoardForm extends Component {
   }
 
   handleInput = ({ target: { name, value } }) => {
+    if(name == "teamId" &&  !value) {
+      return this.setState({[name]: null})
+    }
     return this.setState({ [name]: value });
   };
 
@@ -43,7 +46,7 @@ class CreateBoardForm extends Component {
             />
 
             <select name="teamId" onChange={this.handleInput}>
-              <option value={null}>No team</option>
+              <option value="">No team</option>
               {teams.map((team) => {
                 return <option value={`${team._id}`}>{team.name}</option>;
               })}

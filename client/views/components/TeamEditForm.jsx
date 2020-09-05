@@ -15,19 +15,28 @@ class TeamEditForm extends Component {
     };
   }
 
+  componentDidMount() {
+    let {singleTeam} = this.props;
+    if(singleTeam.name) {
+      let {name, type, description} = singleTeam;
+      this.setState({name, type, description});
+    }
+  }
+
   handleInput = ({ target: { value, name } }) => {
     return this.setState({ [name]: value.trim() });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    let dest = `/team/${this.props.match.params.teamSlug}`;
+    // let dest = `/team/${this.props.match.params.teamSlug}`;
+    this.props.closeForm()
     return this.props.dispatch(
       editTeam(
         this.props.match.params.teamSlug,
         this.state,
         this.props.history,
-        dest
+        
       )
     );
   };
@@ -50,7 +59,7 @@ class TeamEditForm extends Component {
 
           <Form.Field>
             <label>Team Type</label>
-            <select name="type" onChange={this.handleInput}>
+            <select name="type" value={type} onChange={this.handleInput}>
               <option value="">Select</option>
               <option value="education">Education</option>
               <option value="marketing">Marketing</option>

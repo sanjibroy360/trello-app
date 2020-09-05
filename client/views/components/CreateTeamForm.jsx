@@ -18,7 +18,7 @@ class CreateTeamForm extends Component {
   }
 
   handleInput = ({ target: { value, name } }) => {
-    return this.setState({ [name]: value.trim() });
+    return this.setState({ [name]: value });
   };
 
   handleSubmit = (event) => {
