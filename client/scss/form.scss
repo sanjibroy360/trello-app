@@ -1,0 +1,66 @@
+.form_wrapper {
+  max-width: 25rem !important;
+  padding: 2rem 2.5rem !important;
+  margin: 3rem auto !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px !important;
+  border: none !important;
+
+  input {
+    border: 2px solid #dfe1e6 !important;
+  }
+
+  input:focus {
+    border: 2px solid rgb(77,152,250) !important;
+  }
+
+  small {
+    font-size: 0.85rem;
+    color: rgb(101, 102, 104);
+    display: block;
+    text-align: right;  
+  }
+
+  small:hover {
+    color: darkmagenta;
+    text-decoration: underline;
+  }
+}
+
+.accept_policy, .small_text {
+  color: rgb(94, 108, 132);
+  font-size: 0.8rem;
+}
+
+.small_text {
+  margin-top: 0.5rem;
+  font-weight: 100;
+}
+
+.submit_btn {
+  width: 100% !important;
+  background-color: rgb(0, 82, 204) !important;
+  color: #fff !important;
+}
+
+.disable_btn {
+  cursor: not-allowed !important;
+  background-color: rgb(206, 206, 206) !important;
+  color: rgb(129, 129, 129) !important;
+  padding: 0.8rem 1.5rem !important;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+.form_heading {
+  text-align: center;
+  color: rgb(94, 108, 132);
+  font-size: 1rem;
+  margin: 1.67rem;
+  font-weight: bold;
+}
+
+.login_btn {
+  background-color: #5aac44 !important;
+  color: #fff !important;
+}

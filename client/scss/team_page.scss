@@ -1,0 +1,183 @@
+.team_page_head {
+  background-color: rgb(244, 245, 247) !important;
+}
+
+.team_info_wrapper {
+  .edit_btn {
+    border: none;
+    background-color: rgba(9, 30, 66, 0.04);
+    margin-top: 0.5rem;
+    padding: 0.375rem 0.75rem;
+  }
+
+  .disable {
+    cursor: not-allowed;
+  }
+}
+
+.ui.attached.tabular.menu {
+  background-color: rgb(244, 245, 247) !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin-bottom: 3rem !important;
+  .tab {
+    display: flex;
+    justify-content: space-evenly;
+    width: 25% !important;
+    margin: 0 auto !important;
+  }
+}
+
+.team_page_container {
+  max-width: 55rem;
+  margin: 0 auto;
+  .team_info_wrapper {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 3rem;
+  }
+  .team_info {
+    flex-basis: 40%;
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: rgb(23, 43, 77);
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      max-width: 500px;
+    }
+  }
+
+  .avatar {
+    flex-basis: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5.3125rem;
+    height: 5.3125rem;
+    background-color: rgb(223, 225, 230);
+    font-size: 3rem;
+    color: rgb(65, 82, 110);
+    padding: 1.15rem 1rem;
+    margin-right: 1.5rem;
+  }
+
+  button {
+    width: 10rem;
+    padding: 0.15rem 1.5rem;
+    color: rgb(23, 43, 77);
+    font-size: 0.875rem;
+  }
+
+  .btn {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .save {
+    background-color: rgb(90, 172, 68);
+    color: #fff;
+    margin-right: 1rem;
+  }
+
+  .cancel {
+    color: rgb(65, 82, 110);
+  }
+}
+
+.team_settings {
+  p {
+    font-size: 0.875rem;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    // align-items: center;
+  }
+
+  h3,
+  b {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #172b4d;
+  }
+
+  hr {
+    height: 1px;
+    border: none;
+    margin-top: -1px;
+    background-color: rgb(223, 225, 231);
+  }
+
+  b {
+    font-size: 0.875rem;
+  }
+
+  button {
+    width: 5rem;
+    padding: 0.5rem 1rem;
+    background-color: rgb(246, 246, 248);
+    border: none;
+  }
+
+  .disable {
+    cursor: not-allowed;
+  }
+}
+
+.ui.top.left.basic.popup.transition.visible {
+  max-width: 19rem !important;
+}
+
+.card_content_wrapper {
+  .card_list_heading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #172b4d;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1000005 !important;
+  }
+
+  .link {
+    cursor: pointer !important;
+  }
+  .card_heading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #5e6c84;
+    text-align: center;
+    padding: 0.25rem;
+  }
+
+  hr {
+    height: 1px;
+    border: none;
+    margin-top: -1px;
+    background-color: rgb(223, 225, 231);
+  }
+
+  .card_text {
+    font-size: 0.75rem;
+    color: #5e6c84;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .delbtn {
+    width: 100%;
+    background-color: rgb(207, 81, 61);
+    color: #fff;
+    border-radius: 0.2rem;
+    padding: 0.3rem 0.1rem;
+    border: none;
+  }
+}

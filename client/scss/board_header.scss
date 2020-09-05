@@ -1,0 +1,72 @@
+.board_header {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .del_btn {
+      margin-top: -1.85rem;
+      button {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.875rem;
+        border-radius: 0.25rem;
+        border: none;
+        background-color: rgb(85,149,205);
+        color: #fff;
+        font-weight: 600;
+      }
+    }
+
+    .del_btn:hover {
+      button {
+        background-color: #d11a2a;
+      }
+    }
+    .menu {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      padding: 0.25rem 0rem;
+      transition: color 85ms ease-in;
+      color: #fff;
+      margin-bottom: 2.5rem;
+      li {
+        margin-right: 2rem;
+      }
+
+      .board_name {
+        // color: #fff;
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+
+      .board_name_input {
+        border: none;
+        outline: 0;
+        background-color: hsla(0, 0%, 100%, 0.24);
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        color: #fff;
+        box-shadow: inset hoff voff blur #000;
+      }
+
+      select,
+      button,
+      span {
+        background-color: hsla(0, 0%, 100%, 0.24);
+        text-align: center;
+        color: #fff;
+        font-size: 0.875rem;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        font-weight: 700;
+
+        option {
+          color: #000;
+          background-color: hsla(0, 0%, 100%, 0.24);
+        }
+      }
+    }
+  }
+}

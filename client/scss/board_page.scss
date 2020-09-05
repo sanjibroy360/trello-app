@@ -1,0 +1,15 @@
+.board_page_wrapper {
+  background-color: rgb(0, 120, 191);
+  min-height: 100vh;
+  width: 100%;
+}
+
+.list_wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  background-color: rgb(0, 120, 191);
+  
+}
+
