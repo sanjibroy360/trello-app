@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development nodemon ./bin/www",
-    "start:prod": "NODE_ENV=production nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "start:prod": "node ./bin/www",
     "clean": "rimraf dist/bundle/",
     "backend": "nodemon ./bin/www",
     "build": "webpack --config ./webpack.prod.config.js --mode production"
