@@ -1,0 +1,114 @@
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  position: absolute !important;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  padding: 0 !important;
+  z-index: 100000 !important;
+  margin-top: 10% !important;
+}
+
+.modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modal .modal_leftside {
+  -ms-flex-preferred-size: 48%;
+      flex-basis: 48%;
+  padding: 3rem 2rem !important;
+}
+
+.modal .modal_rightside {
+  background: url(https://a.trellocdn.com/prgb/dist/images/create-team/wavy-border.1ea9c6f8c41d10be0e12.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  width: 417px;
+  padding: 8rem 0rem !important;
+}
+
+.modal .modal_rightside img {
+  width: 20rem;
+  height: 16rem;
+}
+
+.modal .modal_rightside .close_btn_icon {
+  margin-top: -6rem;
+  margin-right: 2rem;
+  display: block;
+  text-align: right;
+}
+
+.create_team_form h2 {
+  font-size: 1.5rem;
+  color: #091e42;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.create_team_form .form_head_para {
+  font-size: 1.125rem;
+  color: #6b778c;
+  margin: 0.8rem auto 1.5rem auto;
+}
+
+.create_team_form .field label {
+  margin-top: 1.5rem !important;
+  color: #091e42 !important;
+  font-size: 0.8rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.create_team_form .field input {
+  min-height: 2.25rem !important;
+}
+
+.create_team_form .field input,
+.create_team_form .field textarea,
+.create_team_form .field select {
+  color: #172b4d !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  border: 2px solid #dfe1e6 !important;
+}
+
+.create_team_form .field textarea {
+  resize: none;
+}
+
+.create_team_form .field input:focus,
+.create_team_form .field textarea:focus,
+.create_team_form .field select:focus {
+  border: 2px solid #4d98fa !important;
+  background-color: #fafbfc;
+}
+
+.create_team_form .field input:hover,
+.create_team_form .field select:hover,
+.create_team_form .field textarea:hover {
+  background-color: #ededee;
+}
+
+#closeModalBtn,
+#modalToggleBtn {
+  display: none !important;
+}
+
+.team_list li,
+.team_list label {
+  cursor: pointer;
+}
+
+.team_list .team_name:hover {
+  color: #4d98fa;
+  font-weight: bold;
+}
+/*# sourceMappingURL=create_team.css.map */

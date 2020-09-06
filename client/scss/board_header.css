@@ -1,0 +1,85 @@
+.board_header .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.board_header .container .del_btn {
+  margin-top: -1.85rem;
+}
+
+.board_header .container .del_btn button {
+  font-size: 0.875rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: #5595cd;
+  color: #fff;
+  font-weight: 600;
+}
+
+.board_header .container .del_btn:hover button {
+  background-color: #d11a2a;
+}
+
+.board_header .container .menu {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.25rem 0rem;
+  -webkit-transition: color 85ms ease-in;
+  transition: color 85ms ease-in;
+  color: #fff;
+  margin-bottom: 2.5rem;
+}
+
+.board_header .container .menu li {
+  margin-right: 2rem;
+}
+
+.board_header .container .menu .board_name {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.board_header .container .menu .board_name_input {
+  border: none;
+  outline: 0;
+  background-color: rgba(255, 255, 255, 0.24);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  color: #fff;
+  -webkit-box-shadow: inset hoff voff blur #000;
+          box-shadow: inset hoff voff blur #000;
+}
+
+.board_header .container .menu select,
+.board_header .container .menu button,
+.board_header .container .menu span {
+  background-color: rgba(255, 255, 255, 0.24);
+  text-align: center;
+  color: #fff;
+  font-size: 0.875rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 700;
+}
+
+.board_header .container .menu select option,
+.board_header .container .menu button option,
+.board_header .container .menu span option {
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.24);
+}
+/*# sourceMappingURL=board_header.css.map */

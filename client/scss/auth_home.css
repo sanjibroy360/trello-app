@@ -1,0 +1,121 @@
+.auth_home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-top: 3rem !important;
+}
+
+.leftside_component {
+  -ms-flex-preferred-size: 77%;
+      flex-basis: 77%;
+}
+
+ul.vertical.sidebar_menu {
+  line-height: 1 !important;
+  margin-bottom: 0.3rem !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border-radius: 0.5rem !important;
+}
+
+ul.vertical.sidebar_menu .item {
+  line-height: 1 !important;
+  margin-bottom: 0.3rem !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border-radius: 0.5rem !important;
+}
+
+ul.vertical.sidebar_menu .item::before {
+  border: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  width: 0px !important;
+}
+
+.board_category {
+  color: #172b4d;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.board_list {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.board_list .home_card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 14px;
+  background-color: rgba(9, 30, 66, 0.04);
+  color: #172b4d;
+  text-align: center;
+  height: 6rem;
+  width: 12rem;
+  margin-bottom: 1.25rem;
+  margin-right: 1.25rem;
+  border-radius: 0.25rem;
+}
+
+.board_list .board_card {
+  background: url(https://source.unsplash.com/collection/327163/154x97);
+  background-size: cover;
+  background-position: center;
+}
+
+.board_list .sidebar_heading {
+  color: #5e6c84;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+}
+
+.board_list .board-tile-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 8;
+  background-color: rgba(0, 0, 0, 0.17);
+}
+
+.board_list .board_name {
+  display: block;
+  position: relative;
+  z-index: 9;
+  top: -2rem;
+  right: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+}
+/*# sourceMappingURL=auth_home.css.map */

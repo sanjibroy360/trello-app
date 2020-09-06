@@ -1,0 +1,58 @@
+.feed {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  margin-top: 3rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.feed_card {
+  -webkit-box-shadow: 0 1px 1px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+          box-shadow: 0 1px 1px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+  width: 26.25rem;
+  border-radius: 0.25rem;
+  height: 14rem !important;
+}
+
+.feed_card .feed_card_img {
+  width: 100%;
+  min-height: 6.75rem;
+  background-color: #fdf4e7;
+  background: url(https://a.trellocdn.com/prgb/dist/images/home/orientation/no-content.e25c676458c1f4cb280b.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  border-radius: 0.25rem;
+}
+
+.feed_card .feed_card_text {
+  width: 100%;
+  color: #172b4d;
+  padding: 1rem;
+}
+
+.feed_card .feed_card_text h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.feed_card .feed_card_text p {
+  font-size: 0.85rem;
+  margin: 0.625rem 0rem;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 1rem;
+  height: auto;
+}
+
+.ui.vertical.menu {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border: none !important;
+}
+/*# sourceMappingURL=feed.css.map */

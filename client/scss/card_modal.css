@@ -1,0 +1,131 @@
+#card_modal_background {
+  background-color: rgba(0, 0, 0, 0.64) !important;
+  position: fixed !important;
+  border: none !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+  z-index: 1000000 !important;
+}
+
+.card_modal {
+  max-width: 48rem !important;
+  min-height: 80vh;
+  max-height: 102vh;
+  background-color: #f4f5f7;
+}
+
+.card_modal .modal_leftside {
+  -ms-flex-preferred-size: 68.5%;
+      flex-basis: 68.5%;
+  max-width: 68.5%;
+  background-color: #f4f5f7;
+}
+
+.card_modal .modal_leftside .edit_card_form {
+  display: block;
+  line-height: 3;
+}
+
+.card_modal .modal_leftside .edit_card_form input[type="text"] {
+  width: 100%;
+  min-height: 2.25rem !important;
+}
+
+.card_modal .modal_leftside .edit_card_form input[type="text"]:focus {
+  border: 2px solid #4d98fa !important;
+  background-color: #fafbfc;
+}
+
+.card_modal .modal_leftside .edit_card_form .card_name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  overflow: scroll;
+}
+
+.card_modal .modal_leftside .edit_card_form h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card_modal .modal_leftside .edit_card_form .description_placeholder {
+  background-color: rgba(9, 30, 66, 0.04);
+  min-height: 2.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.25rem;
+}
+
+.card_modal .modal_leftside .edit_card_form .description_placeholder {
+  font-size: 0.875rem;
+}
+
+.card_modal .modal_leftside .edit_card_form .dueDate_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.875rem;
+  color: #5e6c84;
+}
+
+.card_modal .modal_leftside .edit_card_form .dueDate_wrapper input[type="checkbox"] {
+  margin-top: 1.15rem;
+}
+
+.card_modal .modal_leftside .edit_card_form .dueDate_wrapper .date {
+  margin: 0 0.75rem;
+}
+
+.card_modal .modal_leftside .edit_card_form .dueDate_wrapper .badge {
+  border-radius: 0.25rem;
+  overflow-wrap: break-word;
+  padding: 0.15rem 0.2rem;
+}
+
+.card_modal .modal_rightside {
+  background-color: #f4f5f7 !important;
+  -ms-flex-preferred-size: 31.5%;
+      flex-basis: 31.5%;
+  background: none;
+}
+
+.card_modal .modal_rightside .ui.vertical.menu {
+  background-color: #f4f5f7 !important;
+}
+
+.activity {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 3;
+}
+
+.desc_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.desc_wrapper .btn {
+  border: none;
+  font-size: 0.875rem;
+  margin-left: 1rem;
+  padding: 0.5rem 0.875rem;
+}
+
+.card_desc_text {
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+.card_details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=card_modal.css.map */

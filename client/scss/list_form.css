@@ -1,0 +1,58 @@
+.list_form_wrapper {
+  min-height: 2rem;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  min-width: 17rem;
+  border-radius: 0.2rem;
+}
+
+.list_form_wrapper .placeholder {
+  padding: 0.5rem 0.8rem;
+  background-color: rgba(255, 255, 255, 0.24);
+  width: 100%;
+  border-radius: 0.2rem;
+  font-size: 0.875rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.list_form_wrapper .list_form {
+  width: 100%;
+  background-color: #ebecf0;
+  padding: 0.25rem;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0.2rem;
+  border: none;
+}
+
+.list_form_wrapper .list_form input {
+  width: 100%;
+  border: none;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  -webkit-box-shadow: inset 0 0 0 2px #0079bf;
+          box-shadow: inset 0 0 0 2px #0079bf;
+  background-color: #fff;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.btn_wrapper button {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+  margin-right: 0.25rem;
+  min-height: 2rem;
+}
+
+.btn_wrapper .add_btn {
+  color: #fff;
+  background-color: #5aac44;
+}
+/*# sourceMappingURL=list_form.css.map */

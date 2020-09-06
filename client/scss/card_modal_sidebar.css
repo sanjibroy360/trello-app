@@ -1,0 +1,126 @@
+.label_popup {
+  width: 19rem;
+  min-height: 22rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 1.25rem;
+  padding: 0.5rem 0.25rem;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+          box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+  z-index: 10000000 !important;
+}
+
+.label_popup .color_bar_wrapper {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.label_popup .color_bar_wrapper h3,
+.label_popup .color_bar_wrapper hr,
+.label_popup .color_bar_wrapper .popup_header {
+  color: #5e6c84;
+  font-size: 0.875rem;
+}
+
+.label_popup .color_bar_wrapper .search_color {
+  font-size: 0.875rem;
+  width: 100%;
+  border: none;
+  -webkit-box-shadow: inset 0 0 0 2px #edeef1;
+          box-shadow: inset 0 0 0 2px #edeef1;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.label_popup .color_bar_wrapper .search_color:hover {
+  background-color: #eceaea;
+}
+
+.label_popup .color_bar_wrapper .search_color:focus {
+  -webkit-box-shadow: inset 0 0 0 2px #4d98fa;
+          box-shadow: inset 0 0 0 2px #4d98fa;
+  background-color: #fafbfc;
+}
+
+.label_popup .color_bar_wrapper .save_btn {
+  width: 100%;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  color: inherit;
+  padding: 0.5rem 0.875rem;
+}
+
+.label_popup .color_bar_wrapper .color_bar {
+  width: 100%;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+}
+
+.label_popup .color_bar_wrapper .color_bar i {
+  padding-right: 0.5rem;
+}
+
+.ui.vertical.menu.card_sidebar_menu .item:hover {
+  background-color: #ebecf0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.popup_header {
+  color: #5e6c84;
+}
+
+.popup_header .popup_heading {
+  text-align: center;
+  width: 100%;
+}
+
+.popup_header .popup_heading .close_btn {
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  background-color: transparent;
+  border-radius: 50%;
+  position: relative;
+  left: 6rem;
+  top: 0rem;
+  text-align: right;
+}
+
+.popup_header .popup_heading .close_btn:hover {
+  background-color: #eee;
+}
+
+.card_details {
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.card_details .owner {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.card_details p {
+  font-size: 0.875rem;
+}
+/*# sourceMappingURL=card_modal_sidebar.css.map */

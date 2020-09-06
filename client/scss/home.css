@@ -1,0 +1,47 @@
+.hero_section {
+  background: linear-gradient(135deg, #0079bf, #5067c5);
+  height: 100vh;
+}
+
+.hero_wrapper {
+  background: linear-gradient(135deg, #0079bf, #5067c5);
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.hero_image {
+  -ms-flex-preferred-size: 45%;
+      flex-basis: 45%;
+}
+
+.hero_text {
+  -ms-flex-preferred-size: 45%;
+      flex-basis: 45%;
+  color: #fff;
+}
+
+.hero_heading {
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 3rem;
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+
+.hero_para {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+/*# sourceMappingURL=home.css.map */
