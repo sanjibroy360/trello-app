@@ -7,9 +7,9 @@ var helmet = require("helmet");
 var expressStaticGzip = require("express-static-gzip");
 var mongoose = require("mongoose");
 
-require('dotenv').config();
+require("dotenv").config();
 
-var indexRouter = require('./routes/index');
+var indexRouter = require("./routes/index");
 var apiRouter = require("./routes/api/v1/index");
 // var usersRouter = require('./routes/api/user');
 
@@ -49,9 +49,11 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);
 
 // connect to mongodb
-mongoose.connect('mongodb://localhost:27017/trello',{useUnifiedTopology: true} , function (err) {
-  console.log('mongodb connected ?', err ? false : true);
-})
+var url =
+  "mongodb+srv://trello:trellopassword@sandbox.80fx1.mongodb.net/test";
+mongoose.connect(url, { useUnifiedTopology: true }, function (err) {
+  console.log("mongodb connected ?", err ? false : true);
+});
 
 // webpack
 if (process.env.NODE_ENV === "development") {
@@ -69,12 +71,9 @@ if (process.env.NODE_ENV === "development") {
   app.use(require("webpack-hot-middleware")(compiler));
 }
 
-
-
 // Route handler
-app.use('/api/v1', apiRouter) // user route handler
+app.use("/api/v1", apiRouter); // user route handler
 app.use("/", indexRouter); // react handler
-
 
 app.use(function (req, res, next) {
   next(createError(404));
