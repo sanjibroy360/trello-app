@@ -6,7 +6,7 @@
     "start": "./bin/www",
     "start:prod": "./bin/www",
     "clean": "rimraf dist/bundle/",
-    "backend": "nodemon ./bin/www",
+    "backend": "node ./bin/www",
     "build": "webpack --config ./webpack.prod.config.js --mode production"
   },
   "dependencies": {
