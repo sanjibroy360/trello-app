@@ -9,6 +9,14 @@ var mongoose = require("mongoose");
 
 require("dotenv").config();
 
+const gzipOptions = {
+  enableBrotli: true,
+  orderPreference: ["br", "gz"],
+  setHeaders: function (res, path) {
+    res.setHeader("Cache-Control", "public, max-age=31536000");
+  },
+};
+
 var indexRouter = require("./routes/index");
 var apiRouter = require("./routes/api/v1/index");
 // var usersRouter = require('./routes/api/user');
@@ -34,14 +42,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
-  "/dist/bundle",
-  expressStaticGzip(path.join(__dirname, "dist/bundle"), {
-    enableBrotli: true,
-    orderPreference: ["br", "gz"],
-    setHeaders: function (res, path) {
-      res.setHeader("Cache-Control", "public, max-age=31536000");
-    },
-  })
+  "/bundle",
+  expressStaticGzip(path.join(__dirname, "dist/bundle"), gzipOptions)
 );
 
 // fix depreciation warning.
@@ -49,8 +51,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);
 
 // connect to mongodb
-var url =
-  "mongodb+srv://trello:trellopassword@sandbox.80fx1.mongodb.net/test";
+var url = "mongodb+srv://trello:trellopassword@sandbox.80fx1.mongodb.net/test";
 mongoose.connect(url, { useUnifiedTopology: true }, function (err) {
   console.log("mongodb connected ?", err ? false : true);
 });
