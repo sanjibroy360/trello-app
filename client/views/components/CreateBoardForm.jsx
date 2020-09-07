@@ -27,8 +27,8 @@ class CreateBoardForm extends Component {
   };
 
   render() {
-    let { teams } = this.props;
-    if (!teams.length) {
+    let { teams,userInfo } = this.props;
+    if (userInfo.teamId.length && !teams.length) {
       return <Loader />;
     }
     return (
@@ -76,8 +76,8 @@ class CreateBoardForm extends Component {
   }
 }
 
-function mapStateToProps({ teams }) {
-  return { teams };
+function mapStateToProps({ teams,userInfo }) {
+  return { teams, userInfo };
 }
 
 export default connect(mapStateToProps)(withRouter(CreateBoardForm));

@@ -51,8 +51,10 @@ class BoardPage extends Component {
         sourceList,
         destList,
       };
-
-      return this.props.dispatch(dragAndDropBetweenTwoList(payload, boardSlug));
+      let cardSlug = card[0].slug;
+      return this.props.dispatch(
+        dragAndDropBetweenTwoList(payload, boardSlug, cardSlug)
+      );
     }
   };
 

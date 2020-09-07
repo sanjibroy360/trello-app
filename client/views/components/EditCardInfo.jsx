@@ -219,7 +219,7 @@ class EditCardInfo extends Component {
         <div className="desc_wrapper">
           <h3 className="description">Description</h3>
           <div>
-            {card.description && !enableEditMode ? (
+            {card.description && !enableEditMode && isMember ? (
               <>
                 <button onClick={this.handleEditDesc} className="btn">
                   Edit

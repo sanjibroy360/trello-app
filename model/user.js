@@ -82,6 +82,7 @@ userSchema.methods.profileInfo = function (user, token = null) {
     name: user.name,
     email: user.email,
     image: user.image || null,
+    teamId: user.teamId,
     bio: user.bio || "",
   };
   if (token) {

@@ -101,12 +101,10 @@ export function createBoard(payload, history) {
         }
       )
       .then(({ data: { board } }) => {
-        console.log({ board });
-
-        dispatch({
-          type: GET_BOARD_INFO,
-          payload: board,
-        });
+        // dispatch({
+        //   type: GET_BOARD_INFO,
+        //   payload: board,
+        // });
         if (board.teamId) {
           dispatch({
             type: ADD_TEAM_BOARD,
@@ -118,8 +116,9 @@ export function createBoard(payload, history) {
             payload: board,
           });
         }
-        console.log(`/board/${board.slug}`);
-        return history.push(`/board/${board.slug}`);
+        dispatch(getSingleBoardInfo(board.slug, history));
+        // console.log(`/board/${board.slug}`);
+        // return history.push(`/board/${board.slug}`);
       });
   };
 }
@@ -246,9 +245,10 @@ export function getSingleTeamInfo(teamSlug, history) {
           type: GET_TEAM_INFO,
           payload: team,
         });
-      }).catch(error => {
-          console.log(error);
-          return history.push(`/error/team/${teamSlug}/not-found`)
+      })
+      .catch((error) => {
+        console.log(error);
+        return history.push(`/error/team/${teamSlug}/not-found`);
       });
   };
 }
@@ -349,10 +349,11 @@ export function getSingleBoardInfo(boardSlug, history) {
         },
       })
       .then(({ data: { board } }) => {
-        return dispatch({
+        dispatch({
           type: GET_BOARD_INFO,
           payload: board,
         });
+        return history.push(`/board/${board.slug}`)
       })
       .catch((error) => {
         console.log(error);
@@ -560,11 +561,11 @@ export function reorderSameListCards(payload, boardSlug) {
   };
 }
 
-export function dragAndDropBetweenTwoList(payload, boardSlug) {
+export function dragAndDropBetweenTwoList(payload, boardSlug,cardSlug) {
   return function (dispatch) {
     axios
       .put(
-        `/board/${boardSlug}/list/reorder-between-two-list`,
+        `/board/${boardSlug}/list/reorder-between-two-list/card/${cardSlug}`,
         {
           payload: payload,
         },
@@ -724,5 +725,3 @@ export function deleteComment(listSlug, cardSlug, commentId) {
       .catch((error) => console.log(error));
   };
 }
-
-

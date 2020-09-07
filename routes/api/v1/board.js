@@ -75,7 +75,7 @@ router.put(
 );
 
 router.put(
-  `/:boardSlug/list/reorder-between-two-list`,
+  `/:boardSlug/list/reorder-between-two-list/card/:cardSlug`,
   auth.verifyToken,
   listController.reorderCardsBetweenTwoList
 );
