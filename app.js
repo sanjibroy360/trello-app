@@ -51,7 +51,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);
 
 // connect to mongodb
-var url = "mongodb+srv://trello:trellopassword@sandbox.80fx1.mongodb.net/test";
+var url = "mongodb://piyushsi:piyushs1@ds033143.mlab.com:33143/heroku_1d052219";
 mongoose.connect(url, { useUnifiedTopology: true }, function (err) {
   console.log("mongodb connected ?", err ? false : true);
 });
