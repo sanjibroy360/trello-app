@@ -130,7 +130,8 @@ exports.reorderCards = async function (req, res, next) {
 
 exports.reorderCardsBetweenTwoList = async function (req, res, next) {
   try {
-    let { sourceList, destList, cardSlug } = req.body.payload;
+    let { cardSlug } = req.params;
+    let { sourceList, destList } = req.body.payload;
     let sourceListId = sourceList._id;
     let sourceListCards = sourceList.cards;
     let destListId = destList._id;
@@ -150,7 +151,8 @@ exports.reorderCardsBetweenTwoList = async function (req, res, next) {
       { new: true }
     ).populate("cards");
     let card = await Card.findOneAndUpdate(
-      { listId: destList.id },
+      { slug: cardSlug },
+      { listId: destList._id },
       { new: true }
     );
     let updatedLists = { sourceList, destList };
