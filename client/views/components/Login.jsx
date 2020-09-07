@@ -10,6 +10,7 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
+      emailValidation: "",
     };
   }
 
@@ -18,11 +19,24 @@ class Login extends Component {
   };
 
   handleSubmit = () => {
-    return this.props.dispatch(userLogin(this.state, this.props.history));
+    let res = this.props.dispatch(userLogin(this.state, this.props.history));
+    console.log(res,"response........")
+  };
+
+  handleEmailValidation = () => {
+    let { email } = this.state;
+    email = email.trim();
+    let isValid = email.split("").includes("@") && email.endsWith(".com");
+    console.log(isValid, email);
+    if (!isValid) {
+      return this.setState({ emailValidation: `Invalid email!` });
+    } else {
+      return this.setState({ emailValidation: "" });
+    }
   };
 
   render() {
-    let { email, password } = this.state;
+    let { email, password,emailValidation } = this.state;
     return (
       <div className="container">
         <Segment className="form_wrapper">
@@ -35,7 +49,13 @@ class Login extends Component {
                 placeholder="Enter email address"
                 name="email"
                 onChange={this.handleInput}
+                onBlur={this.handleEmailValidation}
               />
+              {emailValidation ? (
+                <p className="small_error_msg">{emailValidation}</p>
+              ) : (
+                <></>
+              )}
             </Form.Field>
             <Form.Field>
               <input
@@ -50,9 +70,18 @@ class Login extends Component {
               </Link>
             </Form.Field>
 
-            <Button type="submit" className="submit_btn login_btn">
-              Log in
-            </Button>
+            {email && !emailValidation && password ? (
+              <Button type="submit" className="submit_btn login_btn">
+                Log in
+              </Button>
+            ) : (
+              <Button
+                type="submit"
+                className="submit_btn login_btn disable_btn"
+              >
+                Log in
+              </Button>
+            )}
           </Form>
         </Segment>
 

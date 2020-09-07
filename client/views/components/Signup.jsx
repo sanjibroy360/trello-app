@@ -13,11 +13,16 @@ class Signup extends Component {
       email: "",
       password: "",
       usernameAvailable: true,
+      passwordValidation: "",
+      emailValidation: "",
     };
   }
 
   handleInput = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
+    if(name == "password") {
+      return this.handlePasswordValidation();
+    }
   };
 
   handleSubmit = () => {
@@ -39,14 +44,45 @@ class Signup extends Component {
     }
   };
 
+  handlePasswordValidation = () => {
+    let { password } = this.state;
+    password = password.trim();
+    if (password.length < 8) {
+      return this.setState({
+        passwordValidation: `A password must be 8 character long`,
+      });
+    }else {
+      return this.setState({
+        passwordValidation: "",
+      });
+    }
+  };
+
+  handleEmailValidation = () => {
+    let { email } = this.state;
+    email = email.trim();
+    let isValid = email.split("").includes("@") && email.endsWith(".com");
+    console.log(isValid, email);
+    if (!isValid) {
+      return this.setState({ emailValidation: `Invalid email!` });
+    } else {
+      return this.setState({ emailValidation: "" });
+    }
+  };
+
   render() {
-    let { name, email, password, username, usernameAvailable } = this.state;
+    let {
+      name,
+      email,
+      password,
+      username,
+      usernameAvailable,
+      emailValidation,
+      passwordValidation,
+    } = this.state;
     return (
       <div className="container">
         <Segment className="form_wrapper">
-          {!usernameAvailable && (
-            <Message negative>Username is not available!</Message>
-          )}
           <h3 className="form_heading">Sign up for your account</h3>
           <Form onSubmit={this.handleSubmit}>
             <Form.Field>
@@ -58,6 +94,11 @@ class Signup extends Component {
                 onChange={this.handleInput}
                 onBlur={this.isUsernameAvailable}
               />
+              {!usernameAvailable ? (
+                <p className="small_error_msg">Username is not available!</p>
+              ) : (
+                <></>
+              )}
             </Form.Field>
             <Form.Field>
               <input
@@ -66,6 +107,7 @@ class Signup extends Component {
                 placeholder="Enter fullname"
                 name="name"
                 onChange={this.handleInput}
+                disabled={!usernameAvailable}
               />
             </Form.Field>
             <Form.Field>
@@ -75,7 +117,14 @@ class Signup extends Component {
                 placeholder="Enter email address"
                 name="email"
                 onChange={this.handleInput}
+                onBlur={this.handleEmailValidation}
+                disabled={!usernameAvailable}
               />
+              {emailValidation ? (
+                <p className="small_error_msg">{emailValidation}</p>
+              ) : (
+                <></>
+              )}
             </Form.Field>
             <Form.Field>
               <input
@@ -84,13 +133,26 @@ class Signup extends Component {
                 placeholder="Create password"
                 name="password"
                 onChange={this.handleInput}
+                onBlur={this.handlePasswordValidation}
+                disabled={Boolean(emailValidation) || !usernameAvailable}
               />
+              {passwordValidation ? (
+                <p className="small_error_msg">{passwordValidation}</p>
+              ) : (
+                <></>
+              )}
             </Form.Field>
             <p className="accept_policy">
               By signing up, I accept the Atlassian Cloud Terms of Service and
               acknowledge the Privacy Policy.
             </p>
-            {username && name && email && password.length >= 8 ? (
+            {username &&
+            name &&
+            email &&
+            password.length >=8 &&
+            usernameAvailable &&
+            !emailValidation &&
+            !passwordValidation ? (
               <Button type="submit" className="submit_btn">
                 Sign up
               </Button>

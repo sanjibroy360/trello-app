@@ -27,6 +27,8 @@ import {
   DELETE_CARD,
 } from "../types";
 
+import toastr from "toastr";
+
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3000/api/v1";
@@ -51,7 +53,7 @@ export function getCurrentUser(payload) {
 
 export function userSignup(payload, history) {
   return function (dispatch) {
-    axios
+    return axios
       .post(`/user/signup`, {
         user: payload,
       })
@@ -63,7 +65,8 @@ export function userSignup(payload, history) {
         });
 
         history.push("/login");
-      });
+      })
+      .catch((error) => error);
   };
 }
 
@@ -353,7 +356,7 @@ export function getSingleBoardInfo(boardSlug, history) {
           type: GET_BOARD_INFO,
           payload: board,
         });
-        return history.push(`/board/${board.slug}`)
+        return history.push(`/board/${board.slug}`);
       })
       .catch((error) => {
         console.log(error);
@@ -561,8 +564,7 @@ export function reorderSameListCards(payload, boardSlug) {
   };
 }
 
-export function dragAndDropBetweenTwoList(payload, boardSlug,cardSlug) {
- 
+export function dragAndDropBetweenTwoList(payload, boardSlug, cardSlug) {
   return function (dispatch) {
     axios
       .put(
