@@ -1,35 +1,44 @@
 import React, { Component } from "react";
+import { Button, Checkbox, Form, Segment, Message } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { Button, Checkbox, Form, Segment } from "semantic-ui-react";
-import { userLogin } from "../../store/action";
-import { Link } from "react-router-dom";
+import { getVerificationCode } from "../../store/action";
 
-class Login extends Component {
+class VerifyUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: "",
       email: "",
-      password: "",
     };
   }
 
   handleInput = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
+    this.setState({ [name]: value.trim() });
   };
 
   handleSubmit = () => {
-    return this.props.dispatch(userLogin(this.state, this.props.history));
+    let { email, username } = this.state;
+    let payload = { email, username };
+    this.props.dispatch(getVerificationCode(payload, this.props.history));
   };
 
-  
-
   render() {
-    let { email, password, emailValidation } = this.state;
+    let { email, username } = this.state;
     return (
       <div className="container">
         <Segment className="form_wrapper">
-          <h3 className="form_heading">Log in to Trello</h3>
+          <h3 className="form_heading">Verify user</h3>
           <Form onSubmit={this.handleSubmit}>
+            <Form.Field>
+              <input
+                type="text"
+                value={username}
+                placeholder="Enter username"
+                name="username"
+                onChange={this.handleInput}
+              />
+            </Form.Field>
+
             <Form.Field>
               <input
                 type="text"
@@ -38,37 +47,19 @@ class Login extends Component {
                 name="email"
                 onChange={this.handleInput}
               />
-
-              <p className="small_error_msg">{emailValidation}</p>
-            </Form.Field>
-            <Form.Field>
-              <input
-                type="password"
-                value={password}
-                placeholder="Create password"
-                name="password"
-                onChange={this.handleInput}
-              />
-              <Link to="/user/verify">
-                <small>Forget password</small>
-              </Link>
             </Form.Field>
 
-            {email && !emailValidation && password ? (
-              <Button type="submit" className="submit_btn login_btn">
-                Log in
+            {username && email ? (
+              <Button type="submit" className="submit_btn">
+                Continue
               </Button>
             ) : (
-              <Button
-                type="submit"
-                className="submit_btn login_btn disable_btn"
-              >
-                Log in
-              </Button>
+              <button className="submit_btn disable_btn" disabled>
+                Continue
+              </button>
             )}
           </Form>
         </Segment>
-
         <div className="wall_image">
           <div>
             <img
@@ -85,4 +76,4 @@ class Login extends Component {
   }
 }
 
-export default connect()(Login);
+export default connect()(VerifyUser);

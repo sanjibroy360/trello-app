@@ -19,9 +19,13 @@ class Signup extends Component {
   }
 
   handleInput = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
-    if(name == "password") {
-      return this.handlePasswordValidation();
+    this.setState({ [name]: value }, () => {
+      if (name == "username" && !this.state.usernameAvailable) {
+        return this.isUsernameAvailable();
+      }
+    });
+    if (name == "password") {
+      return this.handlePasswordValidation(value);
     }
   };
 
@@ -32,6 +36,7 @@ class Signup extends Component {
   };
 
   isUsernameAvailable = () => {
+    console.log(this.state.username);
     if (this.state.username) {
       let user = axios
         .get(`/user/${this.state.username}`)
@@ -44,14 +49,12 @@ class Signup extends Component {
     }
   };
 
-  handlePasswordValidation = () => {
-    let { password } = this.state;
-    password = password.trim();
-    if (password.length < 8) {
+  handlePasswordValidation = (password) => {
+    if (password.trim().length < 8) {
       return this.setState({
         passwordValidation: `A password must be 8 character long`,
       });
-    }else {
+    } else {
       return this.setState({
         passwordValidation: "",
       });
@@ -107,7 +110,6 @@ class Signup extends Component {
                 placeholder="Enter fullname"
                 name="name"
                 onChange={this.handleInput}
-                disabled={!usernameAvailable}
               />
             </Form.Field>
             <Form.Field>
@@ -118,7 +120,6 @@ class Signup extends Component {
                 name="email"
                 onChange={this.handleInput}
                 onBlur={this.handleEmailValidation}
-                disabled={!usernameAvailable}
               />
               {emailValidation ? (
                 <p className="small_error_msg">{emailValidation}</p>
@@ -134,7 +135,6 @@ class Signup extends Component {
                 name="password"
                 onChange={this.handleInput}
                 onBlur={this.handlePasswordValidation}
-                disabled={Boolean(emailValidation) || !usernameAvailable}
               />
               {passwordValidation ? (
                 <p className="small_error_msg">{passwordValidation}</p>
@@ -149,7 +149,7 @@ class Signup extends Component {
             {username &&
             name &&
             email &&
-            password.length >=8 &&
+            password.length >= 8 &&
             usernameAvailable &&
             !emailValidation &&
             !passwordValidation ? (

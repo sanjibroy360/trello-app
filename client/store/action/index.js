@@ -25,9 +25,10 @@ import {
   DELETE_ALL_CARDS_IN_THE_LIST,
   DELETE_LIST,
   DELETE_CARD,
+  FALLBACK,
 } from "../types";
 
-import toastr from "toastr";
+import { toast } from "react-toastify";
 
 import axios from "axios";
 
@@ -58,15 +59,13 @@ export function userSignup(payload, history) {
         user: payload,
       })
       .then(({ data: { user } }) => {
-        console.log(user);
-        dispatch({
-          type: GET_USER_INFO,
-          payload: user,
-        });
-
+        toast.success("Account created successfuly");
         history.push("/login");
       })
-      .catch((error) => error);
+      .catch((error) => {
+        console.log(error);
+        toast.error("Something went wrong!");
+      });
   };
 }
 
@@ -82,8 +81,53 @@ export function userLogin(payload, history) {
           payload: user,
         });
         localStorage.setItem("authToken", user.token);
-        console.log({ user });
         history.push("/boards");
+        toast.success(`${user.name} logged in successfuly.`);
+      })
+      .catch((error) => toast.error(`Invalid email or password!`));
+  };
+}
+
+export function getVerificationCode(payload, history) {
+  return function (dispatch) {
+    axios
+      .put("/user/verify", {
+        user: payload,
+      })
+      .then(({ data: { user } }) => {
+        dispatch({
+          type: GET_USER_INFO,
+          payload: user,
+        });
+        history.push("/reset-password");
+        toast.success(
+          `OTP has been send to your registered email id`
+        );
+      })
+      .catch((error) => toast.error("User not found!"));
+  };
+}
+
+export function resetPassword(payload, history) {
+  return function (dispatch) {
+    axios
+      .put("/user/reset-password", {
+        user: payload,
+      })
+      .then((data) => {
+        dispatch({
+          type: GET_USER_INFO,
+          payload: {},
+        });
+        return history.push("/login");
+      })
+      .catch((error) => {
+        dispatch({
+          type: GET_USER_INFO,
+          payload: {},
+        });
+        toast.error(`Wrong OTP`);
+        return history.push("/user/verify");
       });
   };
 }
@@ -540,13 +584,14 @@ export function editListInfo(payload, boardSlug, listSlug) {
   };
 }
 
-export function reorderSameListCards(payload, boardSlug) {
+export function reorderSameListCards(payload, boardSlug, fallBack) {
   return function (dispatch) {
     axios
       .put(
         `/board/${boardSlug}/list/reorder`,
         {
           list: payload,
+          fallBack,
         },
         {
           headers: {
@@ -560,17 +605,31 @@ export function reorderSameListCards(payload, boardSlug) {
           type: REORDER_SAME_LIST_CARDS,
           payload: list,
         });
+      })
+      .catch((error) => {
+        toast.error(`Something went wrong`);
+        return dispatch({
+          type: FALLBACK,
+          payload: fallBack,
+        });
       });
   };
 }
 
-export function dragAndDropBetweenTwoList(payload, boardSlug, cardSlug) {
+export function dragAndDropBetweenTwoList(
+  payload,
+  boardSlug,
+  cardSlug,
+  successMsg,
+  fallBack
+) {
   return function (dispatch) {
     axios
       .put(
         `/board/${boardSlug}/list/reorder-between-two-list/card/${cardSlug}`,
         {
           payload: payload,
+          fallBack,
         },
         {
           headers: {
@@ -579,10 +638,17 @@ export function dragAndDropBetweenTwoList(payload, boardSlug, cardSlug) {
         }
       )
       .then(({ data: { updatedLists } }) => {
-        console.log(updatedLists);
+        toast.success(successMsg);
         return dispatch({
           type: DRAG_AND_DROP_BETWEEN_TWO_LIST,
           payload: updatedLists,
+        });
+      })
+      .catch((error) => {
+        toast.error(`Something went wrong`);
+        return dispatch({
+          type: FALLBACK,
+          payload: fallBack,
         });
       });
   };

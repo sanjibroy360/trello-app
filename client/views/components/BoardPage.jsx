@@ -23,19 +23,21 @@ class BoardPage extends Component {
     let card = "";
     let { allList } = this.props;
     let lists = allList;
-    // let lists = [...allList];
+    let fallBack = [...allList];
     let { boardSlug } = this.props.match.params;
-    // lists = lists.map((list) => {
-    //   let arr = [...list.cards];
-    //   return { ...list, cards: arr };
-    // });
+    fallBack = fallBack.map((list) => {
+      let arr = [...list.cards];
+      return { ...list, cards: arr };
+    });
 
     if (sourceListId == destListId) {
       let listIndex = lists.findIndex((list) => list._id == destListId);
       card = lists[listIndex].cards.splice(sourceIndex, 1);
       lists[listIndex].cards.splice(destIndex, 0, ...card);
       let list = lists[listIndex];
-      return this.props.dispatch(reorderSameListCards(list, boardSlug));
+      return this.props.dispatch(
+        reorderSameListCards(list, boardSlug, fallBack)
+      );
     } else {
       let sourceListIndex = lists.findIndex((list) => list._id == sourceListId);
       let destListIndex = lists.findIndex((list) => list._id == destListId);
@@ -52,9 +54,16 @@ class BoardPage extends Component {
         destList,
       };
       let cardSlug = card[0].slug;
-      
+      let successMsg = `${card[0].name} is shifted from ${sourceList.name} to ${destList.name}`;
+
       return this.props.dispatch(
-        dragAndDropBetweenTwoList(payload, boardSlug, cardSlug)
+        dragAndDropBetweenTwoList(
+          payload,
+          boardSlug,
+          cardSlug,
+          successMsg,
+          fallBack
+        )
       );
     }
   };

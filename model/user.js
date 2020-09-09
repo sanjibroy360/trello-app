@@ -50,6 +50,9 @@ let userSchema = new Schema(
     bio: {
       type: String,
     },
+    verificationCode: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

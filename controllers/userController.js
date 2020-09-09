@@ -1,6 +1,10 @@
 const User = require("../model/user");
 const auth = require("../middleware/auth");
 
+var nodemailer = require("nodemailer");
+var smtpTransport = require("nodemailer-smtp-transport");
+
+
 exports.userSignup = async function (req, res, next) {
   try {
     let user = await User.create(req.body.user);
@@ -53,22 +57,69 @@ exports.getCurrentUser = async function (req, res, next) {
   }
 };
 
+exports.verifyUserAndSendOTP = async function (req, res, next) {
+  try {
+    let { username, email } = req.body.user;
+    var user = await User.findOne({ username, email });
+    if (!user) {
+      return res.status(400).send(`Invalid email`);
+    }
+
+    var transporter = nodemailer.createTransport(
+      smtpTransport({
+        service: "gmail",
+        port: 587,
+        secure: false,
+        requireTLS: true,
+        auth: {
+          user: process.env.GMAIL_ID,
+          pass: process.env.PASSWORD,
+        },
+      })
+    );
+
+    var verificationCode = Math.random().toString(36).slice(-8);
+
+    let mailOptions = {
+      from: process.env.GMAIL_ID,
+      to: user.email,
+      subject: "Trello E-mail Verfication message",
+      test: "First mail via nodemailer",
+      html: `<h2>Your OTP is</h2> <h3>${verificationCode}</h3>`,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) return console.log("ERROR:  ", err);
+      console.log("Message sent: %", info.response);
+    });
+
+    user = await User.findByIdAndUpdate(
+      user.id,
+      { verificationCode },
+      { new: true }
+    );
+    console.log(user);
+    res.status(200).json({ user: { username, email } });
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.resetPassword = async function (req, res, next) {
   try {
-    let { password } = req.body.user;
-    let payload = {
-      name: req.body.user.name,
-      username: req.body.user.username,
-      email: req.body.user.email,
-    };
-    let user = await User.findOne(payload);
+    let { username, email, password, verificationCode } = req.body.user;
+
+    let user = await User.findOne({ username, email });
     if (!user) {
       return res.status(400).send(`User not found!`);
+    }
+    if (user.verificationCode != verificationCode) {
+      return res.status(401).send(`Wrong verification code.`);
     }
     password = await user.encryptPassword(password);
     user = await User.findByIdAndUpdate(user.id, { password }, { new: true });
 
-    return res.status(200).json({ user: user.profileInfo(user) });
+    return res.status(200).send(`Password has been changed sucessfuly`);
   } catch (error) {
     next(error);
   }

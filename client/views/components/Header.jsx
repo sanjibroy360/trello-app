@@ -7,7 +7,7 @@ import NonAuthHeader from "./NonAuthHeader";
 class Header extends Component {
   render() {
     return (
-      <>{this.props.userInfo.username ? <AuthHeader /> : <NonAuthHeader />}</>
+      <>{this.props.userInfo.token ? <AuthHeader /> : <NonAuthHeader />}</>
     );
   }
 }

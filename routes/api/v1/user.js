@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+
 const User = require("../../../model/user");
 const auth = require("../../../middleware/auth");
 
@@ -11,6 +12,8 @@ router.post("/signup", userController.userSignup);
 router.post("/login", userController.userLogin);
 
 router.get("/current-user", auth.verifyToken, userController.getCurrentUser);
+
+router.put("/verify", userController.verifyUserAndSendOTP);
 
 router.put("/reset-password", userController.resetPassword);
 

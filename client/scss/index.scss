@@ -19,6 +19,7 @@
 @import "./duedate.scss";
 @import "./error.scss";
 
+
 body {
   font-family: "Charlie Text",sans-serif;
   font-size: 1.25rem;
@@ -86,3 +87,8 @@ input, button, textarea, select {
   display: none;
 }
 
+.toast {
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.85rem !important;
+}

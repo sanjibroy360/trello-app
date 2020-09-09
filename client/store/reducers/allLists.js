@@ -8,7 +8,8 @@ import {
   EDIT_CARD_INFO,
   DELETE_ALL_CARDS_IN_THE_LIST,
   DELETE_LIST,
-  DELETE_CARD
+  DELETE_CARD,
+  FALLBACK,
 } from "../types";
 
 let initialState = [];
@@ -51,6 +52,9 @@ function allListReducer(state = initialState, action) {
       });
       return [...state];
 
+    case FALLBACK:
+      return [...action.payload];
+
     case DRAG_AND_DROP_BETWEEN_TWO_LIST: {
       let { sourceList, destList } = action.payload;
       state = state.map((list) => {
@@ -74,7 +78,7 @@ function allListReducer(state = initialState, action) {
         return card;
       });
 
-      console.log({cards: state[listIndex].cards})
+      console.log({ cards: state[listIndex].cards });
 
       return [...state];
 

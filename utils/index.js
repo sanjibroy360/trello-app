@@ -1,27 +1,17 @@
-import toastr from "toastr";
+// import { toast } from "react-toastify";
 
-toastr.options = {
-    "closeButton": false,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": false,
-    "positionClass": "toast-top-right",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-  }
+// const props = {
+//   position: "top-right",
+//   autoClose: 5000,
+//   hideProgressBar: true,
+//   closeOnClick: true,
+//   pauseOnHover: true,
+//   draggable: true,
+//   progress: undefined,
+// };
 
-export function successMsg(msg) {
-    return toastr.success(msg);
-}
-
-export function errorMsg(msg) {
-    return toastr.error(msg);
-}
+// export function errorNotification(msg) {
+//   console.log(msg);
+//   return toast.error(msg, props);
+// }
+// errorNotification(`Hello world`)

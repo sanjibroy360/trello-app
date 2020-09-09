@@ -25,3 +25,4 @@ export const DELETE_ALL_CARDS_IN_THE_LIST = "DELETE_ALL_CARDS_IN_THE_LIST";
 export const DELETE_LIST = "DELETE_LIST";
 export const DELETE_CARD = "DELETE_CARD";
 export const LOG_OUT = "LOG_OUT";
+export const FALLBACK="FALLBACK"
