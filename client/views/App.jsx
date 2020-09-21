@@ -26,7 +26,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function NonAuthRoutes() {
-  console.log("NonAuthRoutes");
   return (
     <>
       <Switch>
@@ -59,7 +58,6 @@ function NonAuthRoutes() {
 }
 
 function AuthRoutes() {
-  console.log("Auth");
   return (
     <>
       <Switch>
@@ -104,11 +102,10 @@ class App extends Component {
 
   render() {
     let { userInfo } = this.props;
-    console.log(localStorage.authToken, userInfo.token, "before");
     if (localStorage.authToken && !userInfo.name) {
       return <Loader />;
     }
-    console.log(localStorage.authToken, userInfo.token, "after");
+
     return (
       <>
         <Header />

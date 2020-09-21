@@ -1,4 +1,4 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
+import { combineReducers, createStore, applyMiddleware, compose } from "redux";
 import userInfoReducer from "./reducers/userInfo";
 import teamBoardsReducer from "./reducers/teamBoards";
 import personalBoardsReducer from "./reducers/personalBoards";

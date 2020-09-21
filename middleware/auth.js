@@ -12,9 +12,7 @@ exports.generateToken = function (user) {
 
 exports.verifyToken = async function (req, res, next) {
   try {
-    // if(!req.headers.authorization.split(" ")[1]) {
-    //   console.log
-    // }
+    
     let authorization = req.headers.authorization.split(" ");
     let token =
       (req.headers.authorization &&
@@ -27,7 +25,7 @@ exports.verifyToken = async function (req, res, next) {
       console.log("returned");
       next();
       return;
-      // return res.status(401).json({ message: `Unauthorized user!` });
+      
     }
     
 

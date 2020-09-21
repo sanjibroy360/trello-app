@@ -22,11 +22,11 @@ class Signup extends Component {
     this.setState({ [name]: value }, () => {
       if (name == "username" && !this.state.usernameAvailable) {
         return this.isUsernameAvailable();
+      } else if(name == "password") {
+        return this.handlePasswordValidation();
       }
     });
-    if (name == "password") {
-      return this.handlePasswordValidation(value);
-    }
+    
   };
 
   handleSubmit = () => {
@@ -49,7 +49,8 @@ class Signup extends Component {
     }
   };
 
-  handlePasswordValidation = (password) => {
+  handlePasswordValidation = () => {
+    let {password} = this.state;
     if (password.trim().length < 8) {
       return this.setState({
         passwordValidation: `A password must be 8 character long`,
